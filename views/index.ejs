@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="search">
+        <form action="/submit" method="post">
+            <input type="text" placeholder="Enter city" name="city">
+            <button type="submit">search</button>
+        </form>
+    </div>
+    <% if(locals.cityName){ %>
+    <div class="results">
+        <img src="<%= imageURL %>" alt="">
+        <div class="info">
+            <p><aside>Country:</aside> <%= countryName %></p> 
+            <p><aside>City:</aside> <%= cityName %></p>
+            <p><aside>Last Updated:</aside> <%= timeUpdated %></p>
+        </div>
+        <div class="condition">
+            <p><aside>Temprature:</aside> <%= temprature %></p>
+            <p><aside>Humidity:</aside> <%= weatherHumidity %></p>
+            <p><aside>Condition:</aside> <%= weatherCondition %></p>
+        </div>
+
+    </div>
+<% } %>
+<% if(locals.notFound){ %>
+    <div class="results">
+        <p><%= notFound %></p>
+    </div>
+    <% } %>
+
+
+</body>
+</html>
